@@ -3,5 +3,5 @@
 ############################
 
 ## @knitr example
-source('../../init.r')
+source('../../init.R')
 display.example()

@@ -1,9 +1,9 @@
-data.getAndClean.Example <- function() {
+data.getAndCleanExample <- function() {
   d <- data.get.Example()
   names( d ) <- normVarNames( names( d ) )
   d
 }
 
-data.get.Example <- function() {
+data.getExample <- function() {
   read.csv('./data/example.csv', head = TRUE, sep = ',' )
 }

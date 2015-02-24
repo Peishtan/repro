@@ -20,6 +20,18 @@ A framework for reproducible R analysis.
 
 # Structure
 
+* `./init.R` is used to
+
+> - Load app package dependencies
+
+> - Load files
+
+> - Load environment variables
+
+> - Set global options
+
+> - Connect to services (databases, external APIs etc)
+
 * Data getters are in `./data/**`
 
 * Graphing functions are in `./graphs/**`
@@ -48,6 +60,32 @@ _Note_ in order to keep the repository size down, the output of the reports (inc
 
 ***
 
-# Writing reports
+# Writing reports: work-flow
+
+A typical workflow might look like the following:
+
+1. Create a file describing your data in `./data/*` e.g. `./data/sales.R`
+
+2. Write functions to get and munge the data as required, prefixed with `data.` e.g. `data.monthlySales()`
+
+3. Create `./graphs/sales.R` to graph your insights
+
+4. Write a function using `ggplot2` that corresponds to your data pre-fixed with `graph` e.g. `graph.monthlySales()`
+
+5. Create a new template file in `./reports/templates/*` or edit the existing file `./reports/templates/report.Rmd`
+
+6. If you create a new template ensure
+
+> - You use the `*.Rmd` file type
+
+> - You edit the function in `./reports/run.R` to include your new file (you can also create a new function)
+
+7. Write your analysis in [markdown](http://commonmark.org/)
+
+8. Add your graph to `./reports/helpers/report.R` using [knitr](http://yihui.name/knitr/) annotation (ensure you start with `source('../../init.R')` to set the environment in knitr)
+
+9. Include the knitr function name within your reporting template using the example given in `./reports/templates/report.Rmd`
+
+10. When you're ready to run the report, open a terminal within the working dir and run `source('init.R'); runReport()` the output should be a markdown document within `reports/output/*`
 
 ***
