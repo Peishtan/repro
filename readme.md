@@ -76,9 +76,9 @@ A typical workflow might look like the following:
 
 6. If you create a new template ensure
 
-> - You use the `*.Rmd` file type
+a) You use the `*.Rmd` file type
 
-> - You edit the function in `./reports/run.R` to include your new file (you can also create a new function)
+b) You edit the function in `./reports/run.R` to include your new file (you can also create a new function)
 
 7. Write your analysis in [markdown](http://commonmark.org/)
 
