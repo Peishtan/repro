@@ -4,17 +4,17 @@ A framework for reproducible R analysis.
 
 ***
 
+# Objective
+
+The objective is to have simple opinionated framework for reproducible data-analysis in the R language.
+
+***
+
 # Dependencies
 
 * [R](http://www.r-project.org/)
 
 * [Pandoc](http://johnmacfarlane.net/pandoc/)
-
-* Latex
-
-> - [MacTex](http://www.tug.org/mactex/) for Mac
-
-> - [LaTeX](http://www.latex-project.org/) for Windows.
 
 ***
 
