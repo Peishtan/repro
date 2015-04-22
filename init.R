@@ -19,8 +19,6 @@ library( RColorBrewer )
 
 loadDir <- function( dir ) {
   if ( file.exists( dir ) ) {
-    # message( '\n --------------------' )
-    # message( '# Loading dir: ', dir )
     files <- dir( dir , pattern = '[.][rR]$' )
     lapply( files, function( file ) loadFile( file, dir ) )
   }
@@ -28,15 +26,12 @@ loadDir <- function( dir ) {
 
 loadFile <- function( file, dir ) {
   filename <- paste0( dir, '/', file )
-  # message( paste0( '* Loading file: ', filename ) )
   source( filename )
 }
 
 setReportingWd <- function() {
-  # message( paste0( '\n Working dir is: ', getwd() ) )
   if( basename( getwd() ) == 'templates' ) {
     setwd( '../../' )
-    # message( paste0( '\n Changing into dir: ', getwd() ) )
   }
 }
 
@@ -46,9 +41,14 @@ knitrGlobalConfig <- function() {
     set_comment = NA ) )
 }
 
+setEnvVars <- function() {
+  source('env.R')
+}
+
 # Config env
 setReportingWd()
 knitrGlobalConfig()
+# setEnvVars() if you have env vars
 
 # Load code
 dirs <- c( 'extract', 'load', 'transform', 'graphs', 'lib' )
