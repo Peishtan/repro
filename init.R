@@ -10,6 +10,7 @@ library( rattle )
 library( ggplot2 )
 library( scales )
 library( dplyr )
+library( RColorBrewer )
 
 # ----------- # # ----------- # # ----------- #
 # SET UP
@@ -50,7 +51,7 @@ setReportingWd()
 knitrGlobalConfig()
 
 # Load code
-dirs <- c( 'data', 'graphs', 'lib' )
+dirs <- c( 'extract', 'load', 'transform', 'graphs', 'lib' )
 lapply( dirs, loadDir )
 source( './reports/run.R' )
 
